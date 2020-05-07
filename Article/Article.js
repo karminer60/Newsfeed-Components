@@ -164,9 +164,9 @@ function articleMaker(articleAttr){
   
 
 
-  expandButton.addEventListener('click', event => {
+  expandButton.addEventListener('click', () => {
     
-    article.classList.toggle('article-open')
+    article.classList.toggle('article-open');
     
   })
 
