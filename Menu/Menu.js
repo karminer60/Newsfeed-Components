@@ -39,7 +39,9 @@ function menuMaker(data){
   menu.appendChild(menuList)
   
 
-
+  menu.classList.add('menu')
+  menuList.classList.add('ul')
+  
 
   data.forEach(item => {
     const list = document.createElement('li');

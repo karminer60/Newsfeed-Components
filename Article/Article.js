@@ -134,7 +134,7 @@ function articleMaker(articleAttr){
   const twoParagraph = document.createElement('p');
   const threeParagraph = document.createElement('p');
   const expandButton = document.createElement('span');
- 
+  
  
 
 
@@ -144,10 +144,11 @@ function articleMaker(articleAttr){
   article.appendChild(twoParagraph);
   article.appendChild(threeParagraph);
   article.appendChild(expandButton);
- 
+  
 
 
   article.classList.add('article')
+  //article.classList.add('article-open')
   expandButton.classList.add('expandButton')
   dateParagraph.classList.add('date')
   
@@ -164,6 +165,7 @@ function articleMaker(articleAttr){
 
 
   expandButton.addEventListener('click', event => {
+    
     article.classList.toggle('article-open')
     
   })
