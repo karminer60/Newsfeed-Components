@@ -85,12 +85,23 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+
+  {
+    
+    title: 'Eating and Drinking',
+    date: 'Jan 2nd, 2019',
+    firstParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. `,
+
+    secondParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. `,
+
+    thirdParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
   }
 ];
 
 /* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
 
-  <div class="article">
+  <div class="article article-open">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
 
@@ -111,3 +122,61 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+const articles = document.querySelector('.articles')
+
+function articleMaker(articleAttr){
+  const { title, date,firstParagraph, secondParagraph, thirdParagraph } = articleAttr;
+  const article = document.createElement('div');
+  const articleHeading = document.createElement('h2');
+  const dateParagraph = document.createElement('p');
+  const oneParagraph = document.createElement('p');
+  const twoParagraph = document.createElement('p');
+  const threeParagraph = document.createElement('p');
+  const expandButton = document.createElement('span');
+  
+ 
+
+
+  article.appendChild(articleHeading);
+  article.appendChild(dateParagraph);
+  article.appendChild(oneParagraph);
+  article.appendChild(twoParagraph);
+  article.appendChild(threeParagraph);
+  article.appendChild(expandButton);
+  
+
+
+  article.classList.add('article')
+  //article.classList.add('article-open')
+  expandButton.classList.add('expandButton')
+  dateParagraph.classList.add('date')
+  
+
+
+
+  articleHeading.textContent = title
+  dateParagraph.textContent = date
+  oneParagraph.textContent = firstParagraph
+  twoParagraph.textContent = secondParagraph
+  threeParagraph.textContent = thirdParagraph
+  
+  
+
+
+  expandButton.addEventListener('click', () => {
+    
+    article.classList.toggle('article-open');
+    
+  })
+
+  return article;
+ 
+}
+
+
+data.forEach(articleObj => {
+  const article = articleMaker(articleObj)
+  articles.appendChild(article)
+})
+
